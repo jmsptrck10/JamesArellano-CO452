@@ -1,16 +1,19 @@
 package Mycoursework1;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
+import java.util.Comparator;
 import helpers.*;
 
 
 public class Songlist 
 {
-    private ArrayList<Song> songs;
+    private ArrayList<Song> songs = new ArrayList<Song>();
+    
+     
 
     public Songlist() 
     {
-        songs = new ArrayList<Song>();
         addSomeSongs();
         doMainMenu();
     }
@@ -46,6 +49,7 @@ public class Songlist
 
         song = new Song("Jocelyn Flores", "XXXTENTACION", 1557614471);
         songs.add(song);
+        
     }
 
     private void doMainMenu() 
@@ -62,7 +66,8 @@ public class Songlist
                 case 1: addSong();break;
                 case 2: deleteSong();break;
                 case 3: printSongs();
-                case 4: wantToQuit = true; break;
+                case 4: printTopSongs();
+                case 5: wantToQuit = true; break;
             }
         }
     }
@@ -72,7 +77,8 @@ public class Songlist
         System.out.println("\n 1. Add Songs");
         System.out.println(" 2. Delete Songs");
         System.out.println(" 3. Print All Songs");
-        System.out.println(" 4. Quit\n");
+        System.out.println(" 4. Print All Top Songs");
+        System.out.println(" 5. Quit\n");
 
     }
 
@@ -89,15 +95,13 @@ public class Songlist
 
     private void deleteSong()
     {
-        System.out.println(" Deleting a Song");
-        String title = InputReader.getString("Please enter the song title >");
+    Scanner reader = new Scanner(System.in);
+    System.out.println("Enter Song No. which you want to delete: ");
+    Integer num = reader.nextInt();
+    songs.remove(num - 1);
 
-    }
 
-    private Song findByTitle(string title)
-    { 
 
-        return null;
     }
 
     private void printSongs()
@@ -108,8 +112,26 @@ public class Songlist
         for(Song song : songs)
         {
              count++;
-            System.out.print("Song " + count + ": ");
+            System.out.print("Song " + "count" + ": ");
             song.print();
         }
     }
+    
+    private void printTopSongs()  {
+        Scanner reader = new Scanner(System.in);
+
+        System.out.println("Enter No. of plays you want to print: ");
+        Integer num = reader.nextInt();
+            int i;
+            for (i = 0; i < songs.size(); i++) {
+                if (num <= songs.get(i).getPlayCount()) {
+                    System.out.println("Song No. " + (i+1) + " : " + songs.get(i).getTitle() + " by " + songs.get(i).getArtist() + " " + songs.get(i).getPlayCount() + " plays ");
+                }
+
+            }
+
+        
+
+    }
+    
 }
