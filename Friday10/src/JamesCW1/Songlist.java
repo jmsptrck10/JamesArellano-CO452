@@ -50,6 +50,7 @@ public class Songlist
 
     private void doMainMenu() 
     {
+        System.out.println("Main Menu");
         boolean wantToQuit = false;
 
         while(!wantToQuit)

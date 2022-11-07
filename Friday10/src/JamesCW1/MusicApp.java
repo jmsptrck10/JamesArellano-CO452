@@ -1,9 +1,9 @@
-package Mycoursework1;
+package JamesCW1;
 import helpers.ConsoleColours;
 
 public class MusicApp 
 {
-    public static void main(String[] args) throws Exception 
+    public static void main(String[] args)
     {
         System.out.println(ConsoleColours.CONSOLE_CLEAR);
         System.out.println("==================================");
