@@ -120,7 +120,7 @@ public class Songlist
     private void printTopSongs()  {
         Scanner reader = new Scanner(System.in);
 
-        System.out.println("Enter No. of plays you want to print: ");
+        System.out.println("Enter number of plays you want to print: ");
         Integer num = reader.nextInt();
             int i;
             for (i = 0; i < songs.size(); i++) {
